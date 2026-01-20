@@ -1,50 +1,159 @@
-# Welcome to your Expo app 👋
+# Sneaker Collection 👟
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A mobile application for sneaker enthusiasts to catalogue and manage their sneaker collection with AI-powered image detection.
 
-## Get started
+## Features
 
-1. Install dependencies
+- **Add Sneakers** - Capture or upload photos of your sneakers with details
+- **AI Detection** - Automatic sneaker recognition from images
+- **View Collection** - Browse your complete sneaker catalogue
+- **Update Details** - Edit sneaker information and images
+- **Delete Items** - Remove sneakers from your collection
 
-   ```bash
-   npm install
-   ```
+## Tech Stack
 
-2. Start the app
+- **Frontend**: React Native with Expo
+- **Authentication**: Clerk
+- **Backend**: Convex
+- **AI**: Image recognition for sneaker detection
 
-   ```bash
-   npx expo start
-   ```
+## Prerequisites
 
-In the output, you'll find options to open the app in a
+Before you begin, ensure you have the following installed:
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+- Node.js (v18 or higher)
+- npm or yarn
+- Expo CLI (`npm install -g expo-cli`)
+- iOS Simulator (Mac) or Android Studio (for Android development)
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## Installation
 
-## Get a fresh project
-
-When you're ready, run:
-
+1. Clone the repository:
 ```bash
-npm run reset-project
+git clone https://github.com/yourusername/sneaker-collection.git
+cd sneaker-collection
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+2. Install dependencies:
+```bash
+npm install
+# or
+yarn install
+```
 
-## Learn more
+3. Set up environment variables:
 
-To learn more about developing your project with Expo, look at the following resources:
+Create a `.env` file in the root directory:
+```env
+EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
+EXPO_PUBLIC_CONVEX_URL=your_convex_deployment_url
+```
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+4. Set up Convex:
+```bash
+npx convex dev
+```
 
-## Join the community
+5. Start the development server:
+```bash
+npx expo start
+```
 
-Join our community of developers creating universal apps.
+## Configuration
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+### Clerk Authentication
+
+1. Create a Clerk account at [clerk.com](https://clerk.com)
+2. Create a new application
+3. Copy your publishable key to the `.env` file
+4. Configure OAuth providers (optional)
+
+### Convex Backend
+
+1. Sign up at [convex.dev](https://convex.dev)
+2. Create a new project
+3. Run `npx convex dev` to initialize
+4. Deploy your functions with `npx convex deploy`
+
+## Project Structure
+
+```
+├── app/                    # Application screens and navigation
+├── components/             # Reusable React components
+├── convex/                 # Convex backend functions and schema
+├── assets/                 # Images, fonts, and other static files
+├── hooks/                  # Custom React hooks
+├── utils/                  # Utility functions and helpers
+└── constants/              # App constants and configurations
+```
+
+## Usage
+
+1. **Sign Up/Login**: Authenticate using Clerk
+2. **Add a Sneaker**: Tap the '+' button, take a photo or upload from gallery
+3. **AI Detection**: The app automatically detects sneaker details from the image
+4. **View Collection**: Browse all your sneakers in a grid or list view
+5. **Edit/Delete**: Long press on any sneaker to edit or remove it
+
+## Development
+
+### Running on iOS
+```bash
+npx expo start --ios
+```
+
+### Running on Android
+```bash
+npx expo start --android
+```
+
+### Running on Web
+```bash
+npx expo start --web
+```
+
+## Building for Production
+
+### iOS
+```bash
+eas build --platform ios
+```
+
+### Android
+```bash
+eas build --platform android
+```
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+1. Fork the project
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+- [Expo](https://expo.dev) - React Native framework
+- [Clerk](https://clerk.com) - Authentication platform
+- [Convex](https://convex.dev) - Backend platform
+- AI model providers for sneaker detection
+
+## Support
+
+For support, please open an issue in the GitHub repository or contact [your-email@example.com](mailto:your-email@example.com).
+
+## Roadmap
+
+- [ ] Barcode/QR code scanning
+- [ ] Price tracking and market value
+- [ ] Social sharing features
+- [ ] Collection statistics and insights
+- [ ] Dark mode support
+- [ ] Export collection data
